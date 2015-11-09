@@ -1,5 +1,6 @@
 package com.codepath.apps.mysimpletweets.activities;
 
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -7,6 +8,7 @@ import android.view.MenuItem;
 import android.widget.ListView;
 
 import com.codepath.apps.mysimpletweets.R;
+import com.codepath.apps.mysimpletweets.fragments.ComposeTweetDialog;
 import com.codepath.apps.mysimpletweets.network.TwitterApplication;
 import com.codepath.apps.mysimpletweets.network.TwitterClient;
 import com.codepath.apps.mysimpletweets.adapters.TweetsArrayAdapter;
@@ -66,6 +68,12 @@ public class TimelineActivity extends AppCompatActivity {
         });
     }
 
+    private void composeTweet() {
+        FragmentManager fm = getSupportFragmentManager();
+        ComposeTweetDialog composeTweetDialog = ComposeTweetDialog.newInstance("Compose new Tweet");
+        composeTweetDialog.show(fm, "fragment_compose_tweet");
+    }
+
     private void setupScrollListener() {
         lvTweets.setOnScrollListener(new EndlessScrollListener() {
             @Override
@@ -89,12 +97,10 @@ public class TimelineActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
+    }
+
+    public void composeTweet(MenuItem item) {
+        composeTweet();
     }
 }
