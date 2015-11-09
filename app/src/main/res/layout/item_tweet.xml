@@ -59,7 +59,7 @@
         android:hint="@string/timestamp"
         android:layout_marginTop="5dp"
         android:paddingRight="10dp"
-        android:textColor="#84C6FF"
+        android:textColor="#4EADFF"
         android:textSize="12sp"
         android:textStyle="italic" />
 

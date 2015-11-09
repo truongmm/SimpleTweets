@@ -1,11 +1,14 @@
 package com.codepath.apps.mysimpletweets.activities;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.codepath.apps.mysimpletweets.R;
@@ -40,15 +43,17 @@ public class TimelineActivity extends AppCompatActivity {
 
         initializeVariables();
         populateTimeline();
-        setupScrollListener();
+        setupListeners();
     }
 
     private void initializeVariables() {
-        lvTweets = (ListView) findViewById(R.id.lvTweets);
+        client = TwitterApplication.getRestClient();
         tweets = new ArrayList<>();
+
+        lvTweets = (ListView) findViewById(R.id.lvTweets);
         aTweets = new TweetsArrayAdapter(TimelineActivity.this, tweets);
         lvTweets.setAdapter(aTweets);
-        client = TwitterApplication.getRestClient();
+
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
         // Setup refresh listener which triggers new data loading
         swipeContainer.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -96,12 +101,23 @@ public class TimelineActivity extends AppCompatActivity {
         composeTweetDialog.show(fm, "fragment_compose_tweet");
     }
 
-    private void setupScrollListener() {
+    private void setupListeners() {
         lvTweets.setOnScrollListener(new EndlessScrollListener() {
             @Override
             public boolean onLoadMore(int page, int totalItemsCount) {
                 populateTimeline();
                 return true;
+            }
+        });
+
+        lvTweets.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(TimelineActivity.this, TweetActivity.class);
+                Tweet tweet = aTweets.getItem(position);
+                intent.putExtra("tweet", tweet);
+                intent.putExtra("user", tweet.getUser());
+                startActivity(intent);
             }
         });
     }

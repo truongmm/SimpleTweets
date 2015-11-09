@@ -4,6 +4,7 @@
     <string name="app_name">TweetFeed</string>
     <string name="login_label">Connect to TweetFeed</string>
     <string name="title_activity_timeline">TweetFeed</string>
+    <string name="title_activity_tweet">TweetFeed</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -15,5 +16,4 @@
     <string name="char_count">140 chars left</string>
     <string name="name">Name</string>
     <string name="timestamp">Timestamp</string>
-
 </resources>

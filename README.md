@@ -21,6 +21,7 @@ The following **optional** features are implemented:
 
 * [x] While composing a tweet, user can see a character counter with characters remaining for tweet out of 140
 * [x] User can refresh tweets timeline by pulling down to refresh (i.e pull-to-refresh)
+* [x] User can tap a tweet to display a "detailed" view of that tweet
 * [x] Improve the user interface and theme the app to feel "twitter branded"
 * [x] Compose activity is replaced with a modal overlay
 
@@ -45,5 +46,11 @@ User can view more tweets as they scroll with infinite pagination.
 User can compose a new tweet.
 
 ![compose_tweet](https://cloud.githubusercontent.com/assets/5839078/11029669/6564704e-867d-11e5-8217-b3dabc7c9341.gif)
+
+- - -
+
+User can tap a tweet to display a "detailed" view of that tweet.
+
+![tweet_view](https://cloud.githubusercontent.com/assets/5839078/11032398/0db1d176-8690-11e5-9a22-864a31dd287a.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).

@@ -1,5 +1,7 @@
 package com.codepath.apps.mysimpletweets.models;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.text.format.DateUtils;
 
 import org.json.JSONArray;
@@ -10,12 +12,34 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Locale;
 
-public class Tweet {
+public class Tweet implements Parcelable {
 
     private String body;
     private long uid; // unique id for the tweet
     private User user;
     private String createdAt;
+
+    protected Tweet(Parcel in) {
+        body = in.readString();
+        uid = in.readLong();
+        createdAt = in.readString();
+    }
+
+    public static final Creator<Tweet> CREATOR = new Creator<Tweet>() {
+        @Override
+        public Tweet createFromParcel(Parcel in) {
+            return new Tweet(in);
+        }
+
+        @Override
+        public Tweet[] newArray(int size) {
+            return new Tweet[size];
+        }
+    };
+
+    public Tweet() {
+
+    }
 
     public String getBody() {
         return body;
@@ -81,5 +105,17 @@ public class Tweet {
             }
         }
         return tweets;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(body);
+        dest.writeLong(uid);
+        dest.writeString(createdAt);
     }
 }
