@@ -1,4 +1,4 @@
-package utils;
+package com.codepath.apps.mysimpletweets.utils;
 
 import android.widget.AbsListView;
 
