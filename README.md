@@ -20,6 +20,7 @@ The following **required** functionality is completed:
 The following **optional** features are implemented:
 
 * [x] While composing a tweet, user can see a character counter with characters remaining for tweet out of 140
+* [x] Links in tweets are clickable and will launch the web browser
 * [x] User can refresh tweets timeline by pulling down to refresh (i.e pull-to-refresh)
 * [x] User can tap a tweet to display a "detailed" view of that tweet
 * [x] Improve the user interface and theme the app to feel "twitter branded"
@@ -52,5 +53,11 @@ User can compose a new tweet.
 User can tap a tweet to display a "detailed" view of that tweet.
 
 ![tweet_view](https://cloud.githubusercontent.com/assets/5839078/11032398/0db1d176-8690-11e5-9a22-864a31dd287a.gif)
+
+- - -
+
+Links in tweets are clickable and will launch the web browser.
+
+![auto_links](https://cloud.githubusercontent.com/assets/5839078/11032784/09e7be36-8693-11e5-85bc-8a4efe98092e.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).

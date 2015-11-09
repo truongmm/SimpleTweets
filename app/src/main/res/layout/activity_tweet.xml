@@ -43,7 +43,9 @@
         android:background="@drawable/tweet_background"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:autoLink="all"
+        android:linksClickable="true" />
 
     <ImageView
         android:layout_width="60dp"
