@@ -34,15 +34,29 @@ public class TwitterClient extends OAuthBaseClient {
 
     // METHOD == ENDPOINT
     // HomeTimeline - Gets us the home timeline
-    public void getHomeTimeline(String startTweetUid, AsyncHttpResponseHandler handler) {
+    public void getHomeTimeline(long startTweetUid, AsyncHttpResponseHandler handler) {
         String apiUrl = getApiUrl("statuses/home_timeline.json");
 
         // Specify the params
         RequestParams params = new RequestParams();
-        if (startTweetUid == null)
+        if (startTweetUid == Long.MIN_VALUE)
             params.put("start_id", 1);
         else
-            params.put("max_id", startTweetUid);
+            params.put("max_id", startTweetUid - 1);
+
+        // Execute the request
+        getClient().get(apiUrl, params, handler);
+    }
+
+    public void getMentionsTimeline(long startTweetUid, AsyncHttpResponseHandler handler) {
+        String apiUrl = getApiUrl("statuses/mentions_timeline.json");
+
+        // Specify the params
+        RequestParams params = new RequestParams();
+        if (startTweetUid == Long.MIN_VALUE)
+            params.put("start_id", 1);
+        else
+            params.put("max_id", startTweetUid - 1);
 
         // Execute the request
         getClient().get(apiUrl, params, handler);
