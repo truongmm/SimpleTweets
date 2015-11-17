@@ -19,9 +19,6 @@ import org.json.JSONObject;
 
 public class ProfileActivity extends AppCompatActivity {
 
-    TwitterClient client;
-    User user;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,25 +27,19 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     public void setupViews(Bundle savedInstanceState) {
-        client = TwitterApplication.getRestClient();
-        client.getUserInfo(new JsonHttpResponseHandler(){
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                user = User.fromJSON(response);
-                getSupportActionBar().setTitle(user.getScreenName());
+        User user = getIntent().getParcelableExtra("user");
 
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                ProfileHeaderFragment profileHeaderFragment = ProfileHeaderFragment.newInstance(user);
-                fragmentTransaction.replace(R.id.profileHeader, profileHeaderFragment);
-                fragmentTransaction.commit();
-            }
-        });
-
-        String screenName = getIntent().getStringExtra("screen_name");
         if (savedInstanceState == null) {
+            getSupportActionBar().setTitle(user.getScreenName());
+
             FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-            UserTimelineFragment userTimelineFragment = UserTimelineFragment.newInstance(screenName);
+
+            ProfileHeaderFragment profileHeaderFragment = ProfileHeaderFragment.newInstance(user);
+            fragmentTransaction.replace(R.id.profileHeader, profileHeaderFragment);
+
+            UserTimelineFragment userTimelineFragment = UserTimelineFragment.newInstance(user.getScreenName());
             fragmentTransaction.replace(R.id.flContainer, userTimelineFragment);
+
             fragmentTransaction.commit();
         }
     }

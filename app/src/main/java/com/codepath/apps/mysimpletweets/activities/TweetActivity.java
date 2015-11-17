@@ -1,9 +1,11 @@
 package com.codepath.apps.mysimpletweets.activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,6 +16,8 @@ import com.codepath.apps.mysimpletweets.utils.CircleTransform;
 import com.squareup.picasso.Picasso;
 
 public class TweetActivity extends AppCompatActivity {
+    private User user;
+
     private ImageView ivProfileImage;
     private TextView tvName;
     private TextView tvUserName;
@@ -26,7 +30,7 @@ public class TweetActivity extends AppCompatActivity {
         setContentView(R.layout.activity_tweet);
 
         Tweet tweet = (Tweet) getIntent().getParcelableExtra("tweet");
-        User user = (User) getIntent().getParcelableExtra("user");
+        user = (User) getIntent().getParcelableExtra("user");
 
         ivProfileImage = (ImageView) findViewById(R.id.ivProfileImage);
         tvName = (TextView) findViewById(R.id.tvName);
@@ -39,6 +43,19 @@ public class TweetActivity extends AppCompatActivity {
         tvUserName.setText(user.getScreenName());
         tvBody.setText(tweet.getBody());
         tvTimestamp.setText(tweet.getCreatedAt());
+
+        setupListeners();
+    }
+
+    public void setupListeners() {
+        ivProfileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TweetActivity.this, ProfileActivity.class);
+                intent.putExtra("user", user);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
