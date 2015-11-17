@@ -1,5 +1,6 @@
 package com.codepath.apps.mysimpletweets.activities;
 
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -57,6 +58,11 @@ public class TimelineActivity extends AppCompatActivity {
 
     public void composeTweet(MenuItem item) {
         composeTweet();
+    }
+
+    public void onProfileView(MenuItem item) {
+        Intent intent = new Intent(TimelineActivity.this, ProfileActivity.class);
+        startActivity(intent);
     }
 
     // Return the order of the fragments in the view pager

@@ -7,4 +7,9 @@
         android:title="@string/compose_tweet"
         android:onClick="composeTweet"
         app:showAsAction="always" />
+    <item android:id="@+id/profile"
+        android:icon="@drawable/ic_user"
+        android:title="@string/view_profile"
+        android:onClick="onProfileView"
+        app:showAsAction="always" />
 </menu>
