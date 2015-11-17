@@ -1,30 +1,26 @@
-# Week 3 Project: Simple Twitter Client
+# Week 3 Project: Simple Twitter Client # 2
 
 TweetFeed is an android app that allows you to view your Twitter timeline as well as post new tweets.
 
 Submitted by: Melody Truong
 
-Time spent: 10 hours spent in total
+Time spent: 8 hours spent in total
 
 ## Required User Stories
 
 The following **required** functionality is completed:
 
-* [x] User can sign in to Twitter using OAuth login
-* [x] User can view the tweets from their home timeline: Name, Username, Tweet Body, Timestamp
-* [x] User can view more tweets as they scroll with infinite pagination
-* [x] User can compose a new tweet
+* [x] User can switch between Timeline and Mention views using tabs
+* [x] User can infinitely paginate any of these timelines (home, mentions, user) by scrolling to the bottom
+* [x] User can navigate to view their own profile
+* [x] User can click on the profile image in any tweet to see another user's profile
 
 ## Additional User Stories
 
 The following **optional** features are implemented:
 
-* [x] While composing a tweet, user can see a character counter with characters remaining for tweet out of 140
-* [x] Links in tweets are clickable and will launch the web browser
-* [x] User can refresh tweets timeline by pulling down to refresh (i.e pull-to-refresh)
-* [x] User can tap a tweet to display a "detailed" view of that tweet
-* [x] Improve the user interface and theme the app to feel "twitter branded"
-* [x] Compose activity is replaced with a modal overlay
+* [x] User can click on a tweet to be taken to a "detail view" of that tweet
+* [x] Improve the user interface and theme the app to feel twitter branded
 
 #### Video Walkthrough
 
@@ -32,32 +28,33 @@ Here's a walkthrough of the implemented user stories:
 
 - - -
 
-User can sign in to Twitter using OAuth login.
+User can switch between Timeline and Mention views using tabs.
 
-![login](https://cloud.githubusercontent.com/assets/5839078/11029605/f2e06258-867c-11e5-8f11-4854a27bc702.gif)
-
-- - -
-
-User can view more tweets as they scroll with infinite pagination.
-
-![scroll](https://cloud.githubusercontent.com/assets/5839078/11029631/1925ee4c-867d-11e5-8b2b-dbfcdeebe11d.gif)
+![tabs](https://cloud.githubusercontent.com/assets/5839078/11202991/90291ff6-8ca3-11e5-923b-c3bcc5a8f2bc.gif)
 
 - - -
 
-User can compose a new tweet.
+User can navigate to view their own profile.
 
-![compose_tweet](https://cloud.githubusercontent.com/assets/5839078/11029669/6564704e-867d-11e5-8217-b3dabc7c9341.gif)
-
-- - -
-
-User can tap a tweet to display a "detailed" view of that tweet.
-
-![tweet_view](https://cloud.githubusercontent.com/assets/5839078/11032398/0db1d176-8690-11e5-9a22-864a31dd287a.gif)
+![view_user_profile](https://cloud.githubusercontent.com/assets/5839078/11203141/766d772c-8ca5-11e5-8e19-580e231c6ee5.gif)
 
 - - -
 
-Links in tweets are clickable and will launch the web browser.
+User can infinitely paginate any of these timelines (home, mentions, user) by scrolling to the bottom.
 
-![auto_links](https://cloud.githubusercontent.com/assets/5839078/11032784/09e7be36-8693-11e5-85bc-8a4efe98092e.gif)
+![scroll](https://cloud.githubusercontent.com/assets/5839078/11203157/c7163ce0-8ca5-11e5-9f8d-fd5bb3d358de.gif)
+
+- - -
+
+User can click on the profile image in any tweet to see another user's profile.
+
+![other_user_profiles](https://cloud.githubusercontent.com/assets/5839078/11203275/37324900-8ca7-11e5-859c-d4107a0b0115.gif)
+
+- - -
+
+User can click on a tweet to be taken to a "detail view" of that tweet.
+
+![tweet_detail](https://cloud.githubusercontent.com/assets/5839078/11203288/643efcc2-8ca7-11e5-81cc-908e5fef281f.gif)
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
